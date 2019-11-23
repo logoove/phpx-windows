@@ -1,2 +1,1 @@
-# phpx-windows
-windows下编译phpx扩展,php7扩展
+﻿﻿###c/c++语言扩展php函数####采用zephir开发,开发所需要的php所有工具都在php-sdk中,包括zephir,php7.2.0源码,phpsdk工具,deps等,只需要安装vs2017,就可以,编译出来的是x64-php7.2的windows扩展dll,编译其他版本直接下载后编译即可;使用方法,在php.ini中加入,然后再php目录的ext中添加php_fun.dll,重启php,使用的方法有~~~Fun\fun::dump([1,2,3]);Fun\fun::json(200,"请求成功",["name"=>"张三"],1);~~~### php-x开发框架生成扩展是php_dump.dll,编译的是php7.2x,具体编译方法查看phpx文件夹内readme.txt,可以来交流里面只有一个方法就是dump([1,2])  dump(1),支持对象,变量,数组打印

@@ -1,0 +1,26 @@
+编译步骤
+打开vs2017新建-从现有代码创建-项目名称demo
+选择动态链接库,然后切换一下解决方案为release,x64
+右键配置属性C/C++,附加包含目录
+~~~
+D:\php-sdk\phpdev\vc15\x64\php-src
+D:\php-sdk\phpdev\vc15\x64\php-src\TSRM
+D:\php-sdk\phpdev\vc15\x64\php-src\main
+D:\php-sdk\phpdev\vc15\x64\php-src\Zend
+~~~
+C/C++预处理器
+~~~
+ZEND_DEBUG=0
+PHP_EXTENSION
+PHP_WIN32
+ZEND_WIN32
+HAVE_EXT_CPP=1
+COMPILE_DL_EXT_CPP
+ZEND_WIN32_KEEP_INLINE
+ZTS #不添加就是关闭安全,一般不加
+~~~
+\win32\build\文件夹里找到“config.w32.h.in”，将这个文件复制到E:\php7\main\文件夹里，去掉后面的“.in”
+右键项目属性，连接器，输入，附加依赖项，编辑，将php7.lib的路径放进去（这个文件在php编译后的程序文件夹里，根目录的dev文件夹里路径`D:\php-sdk\php\dev\php7.lib`
+编译生成的是NTS版本
+在x64\Release\下面有ext_cpp.dll
+需要改名字php_ext_cpp.dll,所有模块在前面加上php_然后在php.ini配置写上extension=cpp_ext
